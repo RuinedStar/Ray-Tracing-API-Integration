@@ -1,5 +1,5 @@
 #include "OCLsetting.h"
-#include "PTstruct.h"
+#include "RTstruct.h"
 #include <CL\cl_gl.h>
 #include <Windows.h>
 #include <fstream>

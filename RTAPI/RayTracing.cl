@@ -1,4 +1,4 @@
-#include "PTstruct.h"
+#include "RTstruct.h"
 #include "KDstruct.h"
 
 #define EPSILON 0.001f
@@ -11,7 +11,7 @@
 	queue[count++] = ray; \
 
 #define POP_RAY(queue, ray, count) \
-	ray = queue[--count]; \	
+	ray = queue[--count]; \
 
 
 typedef enum { Origin = 0, Reflec, Refrac } RayType;	

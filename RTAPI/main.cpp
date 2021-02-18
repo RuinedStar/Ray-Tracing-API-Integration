@@ -37,19 +37,20 @@ static Timer timer;
 static int rcount = 0;
 static double tcount = 0;
 
-
+//dragon
+/* 
 static float cx = 000, cy = 750, cz = 2150, rx = 000, ry = 750, rz = 1550;
 static float lx = 500.0, ly = 1250.0, lz = -150.0;
 static float offset = 50.0f;
 static float model_scale = 100.0f;
+*/
 
-/*
+// cornell box
 static float cx = 0, cy = 100, cz = 275, rx = 0, ry = 100, rz = 195;
 static float lx = 0, ly = 180, lz = 70;
 
-static float offset = 50.0f;
+static float offset = 10.0f;
 static float model_scale = 100.0f;
-*/
 
 #pragma endregion
 
@@ -260,9 +261,9 @@ int main(int argc, char** argv)
 		const auto& vboname = rawdata[i].first;
 		const auto& vbodata = rawdata[i].second;
 		glBindBuffer(GL_ARRAY_BUFFER, VBOs[i]);
-		//if (vboname.find("leftWall") != std::string::npos) rtMaterialEXT(RT_MAT_MIRROR);
+		if (vboname.find("leftWall") != std::string::npos) rtMaterialEXT(RT_MAT_MIRROR);
 		//if (vboname.find("tallBox") != std::string::npos) rtMaterialEXT(RT_MAT_DIELECTRIC, 1.33f);
-		if (vboname.find("Cube") != std::string::npos) rtMaterialEXT(RT_MAT_DIELECTRIC, 1.33f);
+		//if (vboname.find("Cube") != std::string::npos) rtMaterialEXT(RT_MAT_DIELECTRIC, 1.33f);
 
 		glBufferData(GL_ARRAY_BUFFER, sizeof(PointData) * vbodata.size(), vbodata.data(), GL_STATIC_DRAW);
 	}

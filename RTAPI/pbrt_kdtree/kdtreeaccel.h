@@ -41,7 +41,7 @@
 #define PBRT_ACCELERATORS_KDTREEACCEL_H
 
 // accelerators/kdtreeaccel.h*
-#include "../PTstruct.h"
+#include "../RTstruct.h"
 #include "../KDstruct.h"
 #include "geometry.h"
 

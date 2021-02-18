@@ -16,7 +16,7 @@
 
 
 #include "Timer.h"
-#include "PTstruct.h"
+#include "RTstruct.h"
 #include "KDstruct.h"
 #include "OCLsetting.h"
 #include "pbrt_kdtree\kdtreeaccel.h"
@@ -24,7 +24,7 @@
 static cl_mem INTXN = NULL;
 static std::vector<int> INTXNDATA(800 * 600 * 2);
 
-#define LIGHT_RADIUS 10.0f
+#define LIGHT_RADIUS 1.0f
 
 //debug tool
 #define DEBUGSTRING 0
@@ -362,7 +362,7 @@ void rtBindBuffer(GLenum target, GLuint buffer)
 	Ocl.CheckInit();
 	static std::array<GLenum, 2> targetArray = { GL_ARRAY_BUFFER, GL_ELEMENT_ARRAY_BUFFER };
 	
-	//¨S¦³²Å¦Xªºbuffer id
+	//ï¿½Sï¿½ï¿½ï¿½Å¦Xï¿½ï¿½buffer id
 	if (buffer > Core.glbuffers.size()) return;
 
 	auto& result = std::find(targetArray.begin(), 
@@ -470,7 +470,7 @@ void rtColorPointer(GLint size, GLenum type, GLsizei stride, const GLvoid *point
 		st = sizeof(double);
 		break;
 	default:
-		return;  //¨S¦³²Å¦Xªºtype°Ñ¼Æ
+		return;  //ï¿½Sï¿½ï¿½ï¿½Å¦Xï¿½ï¿½typeï¿½Ñ¼ï¿½
 	}
 
 	if (stride == 0) stride = st * size;
