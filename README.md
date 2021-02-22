@@ -1,7 +1,28 @@
 # Ray Tracing API Integration for OpenGL Applications
-This repository is the C++ & OpenCL implementation of Ray tracing API integration for OpenGL applications, if you are interested in our work, please see the paper below. 
+This repository is the C++ & OpenCL implementation of Ray tracing API integration for OpenGL applications. Please see the paper below if you are interested in our work.  
 
-[Lai, WH, Tang, CY & Chang, CF 2017, *Ray tracing API integration for OpenGL applications*. in V Skala (ed.), Posters Proceedings. May edn, vol. 2703, University of West Bohemia, pp. 1-5, 25th International Conference in Central Europe on Computer Graphics, Visualization and Computer Vision, WSCG 2017, Plzen, Czech Republic](https://scholar.lib.ntnu.edu.tw/en/publications/ray-tracing-api-integration-for-opengl-applications)
+##### [Lai, WH, Tang, CY & Chang, CF 2017, *Ray tracing API integration for OpenGL applications*. in V Skala (ed.), Posters Proceedings. May edn, vol. 2703, University of West Bohemia, pp. 1-5, 25th International Conference in Central Europe on Computer Graphics, Visualization and Computer Vision, WSCG 2017, Plzen, Czech Republic](https://scholar.lib.ntnu.edu.tw/en/publications/ray-tracing-api-integration-for-opengl-applications)
+
+# Motivation
+We provide a realtime ray tracing API (RTAPI) integration for OpenGL applications that can replace the original rendering pilepline (rasterization) with ray tracing by simply adding a few lines of code, and the algorithm behind in RTAPI is also fully parallelized by OpenCL.
+
+|                 `Original` OpenGL Applications                  |                      `RTAPI` OpenGL Applications                       |
+| :-------------------------------------------------------------: | :--------------------------------------------------------------------: |
+|  ![img](images/Picture1.jpg) <br/> Conell box w/ light diabled  | ![img](images/Picture2.jpg) <br/> Ray tracing is applied automatically |
+| ![img](images/Picture1-2.jpg) <br/> Conell box w/ light enabled |    ![img](images/Picture4.jpg) <br/> Refraction extension in RTAPI     |
+|                                                                 | ![img](images/Picture5.jpg) <br/> Mirror Relection extension in RTAPI  |
+
+
+# Supported Fixed Function Pipeline Calls
+These calls are commonly used in fixed function pipeline, and could be automatically transformed to RTAPI. The extension row represents some features provided by RTAPI which legacy OpenGL does not support.
+
+| Buffer       | Rendering       | Capability           | GLU <sub>(OpenGL Utility Library)</sub> | Lighting  | Extension            |
+| ------------ | --------------- | -------------------- | --------------------------------------- | --------- | -------------------- |
+| glGenBuffers | glVertexPointer | glEnableClientState  | gluPerspective                          | glLightfv | rtMaterialEXT        |
+| glBindBuffer | glColorPointer  | glDisableClientState | gluLookAt                               |           | rtBuildAcclStructEXT |
+| glBufferData | glNormalPointer | glEnable             |                                         |           |                      |
+|              | glDrawArrays    | glDisable            |                                         |           |                      |
+|              | glFlush         |                      |                                         |           |                      |
 
 # Prerequisite
 
@@ -35,7 +56,7 @@ This repository is the C++ & OpenCL implementation of Ray tracing API integratio
 ```
 #### Generate your Visual Studio project 
 * CMake-GUI or follow commands in [below Linux section](#configure-and-build-your-project)
-* Double click raytracing.sln to open Visual Studio and start to play it around! 
+* Double click raytracing.sln to open Visual Studio IDE and start to play it around! 
     
 ### **Linux**
 #### Install 3rd-party libraries using vcpkg
@@ -52,3 +73,7 @@ This repository is the C++ & OpenCL implementation of Ray tracing API integratio
 > cmake ..
 > make -j$(nproc)
 ```
+# Special Thanks
+My classmate, *C.Y Tang*
+
+The College Advisor,  *C.F Chang* 
