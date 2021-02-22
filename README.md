@@ -6,11 +6,11 @@ This repository is the C++ & OpenCL implementation of Ray tracing API integratio
 # Motivation
 We provide a realtime ray tracing API (RTAPI) integration for OpenGL applications that can replace the original rendering pilepline (rasterization) with ray tracing by simply adding a few lines of code, and the algorithm behind in RTAPI is also fully parallelized by OpenCL.
 
-|                 `Original` OpenGL Applications                  |                      `RTAPI` OpenGL Applications                       |
-| :-------------------------------------------------------------: | :--------------------------------------------------------------------: |
-|  ![img](images/Picture1.jpg) <br/> Conell box w/ light diabled  | ![img](images/Picture2.jpg) <br/> Ray tracing is applied automatically |
-| ![img](images/Picture1-2.jpg) <br/> Conell box w/ light enabled |    ![img](images/Picture4.jpg) <br/> Refraction extension in RTAPI     |
-|                                                                 | ![img](images/Picture5.jpg) <br/> Mirror Relection extension in RTAPI  |
+|                 `Original` OpenGL Applications                  |                      `RTAPI` OpenGL Applications                                 |
+| :-------------------------------------------------------------: | :------------------------------------------------------------------------------: |
+|  ![img](images/Picture1.jpg) <br/> Conell box w/ light diabled  | ![img](images/Picture2.jpg) <br/> Ray tracing is applied automatically           |
+| ![img](images/Picture1-2.jpg) <br/> Conell box w/ light enabled |     ![img](images/Picture4.jpg) <br/> Refraction material extension in RTAPI     |
+|                                                                 | ![img](images/Picture5.jpg) <br/> Mirror Reflection material extension in RTAPI  |
 
 
 # Supported Fixed Function Pipeline Calls
