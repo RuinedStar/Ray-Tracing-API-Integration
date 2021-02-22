@@ -6,10 +6,6 @@
 #include <stack>
 #include <queue>
 
-//use SAH or median split strategy
-//undefine will use median
-#define SAHKDTREESPLIT
-
 namespace KDTREE
 {
 
@@ -61,45 +57,6 @@ namespace KDTREE
 
 		return true;
 	}
-
-	/*
-	bool BoundingBox::Inbox(const Ray& ray)
-	{
-	float tt, xx, yy, zz;
-	// max z
-	tt = (max[2] - ray.p.z) / ray.dir.z;
-	xx = ray.p.x + ray.dir.x * tt;
-	yy = ray.p.y + ray.dir.y * tt;
-	if (xx >= min[0] && xx <= max[0] && yy >= min[1] && yy <= max[1]) return true;
-	// max y
-	tt = (max[1] - ray.p.y) / ray.dir.y;
-	xx = ray.p.x + ray.dir.x * tt;
-	zz = ray.p.z + ray.dir.z * tt;
-	if (xx >= min[0] && xx <= max[0] && zz >= min[2] && zz <= max[2]) return true;
-	// max x
-	tt = (max[1] - ray.p.y) / ray.dir.y;
-	yy = ray.p.y + ray.dir.y * tt;
-	zz = ray.p.z + ray.dir.z * tt;
-	if (yy >= min[1] && yy <= max[1] && zz >= min[2] && zz <= max[2]) return true;
-	// min z
-	tt = (min[2] - ray.p.z) / ray.dir.z;
-	xx = ray.p.x + ray.dir.x * tt;
-	yy = ray.p.y + ray.dir.y * tt;
-	if (xx >= min[0] && xx <= max[0] && yy >= min[1] && yy <= max[1]) return true;
-	// min y
-	tt = (min[1] - ray.p.y) / ray.dir.y;
-	xx = ray.p.x + ray.dir.x * tt;
-	zz = ray.p.z + ray.dir.z * tt;
-	if (xx >= min[0] && xx <= max[0] && zz >= min[2] && zz <= max[2]) return true;
-	// min x
-	tt = (min[0] - ray.p.x) / ray.dir.x;
-	yy = ray.p.y + ray.dir.y * tt;
-	zz = ray.p.z + ray.dir.z * tt;
-	if (yy >= min[1] && yy <= max[1] && zz >= min[2] && zz <= max[2]) return true;
-
-	return false;
-	}
-	*/
 
 	KDTree::KDTree(int depth, int primnum)
 		:MAXDEPTH(depth), MAXPRIMITIVE(primnum)
@@ -330,29 +287,10 @@ namespace KDTREE
 
 	void KDTree::convertSharedKDnodes(std::vector<KDNode>& kdnodes, std::vector<int>& triangle_pool)
 	{
-		/*system("pause");
-		kdnodes.clear();
-		triangle_pool.clear();
-
-		printf("size: %d KB\n", sizeof(KDnode) * nodeList.size() / 1024);
-		int tsize = 0;
-		for (int i = 0; i < nodeList.size();i++)
-		{
-			tsize += nodeList[i]->indexList.size();
-		}
-		printf("tsize = %d\n", tsize);
-		printf("size tri: %d MB\n", sizeof(Triangle) * tsize / 1024 / 1024);
-		system("pause");
-		*/
-
 		KDNode temp;
 		for (int i = 0; i < nodeList.size(); i++)
 		{
 			auto& node = nodeList[i];
-
-			//copy bounding box, stat, axis
-			//temp.maxBound = { node->box.maxb[0], node->box.maxb[1], node->box.maxb[2], 0 };
-			//temp.minBound = { node->box.minb[0], node->box.minb[1], node->box.minb[2], 0 };
 			temp.stat = (node->isLeaf()) ? isLeaf : isNode;
 
 			//if is leaf set triangle info for the node
@@ -370,9 +308,6 @@ namespace KDTREE
 				temp.end = -1;
 			}
 
-			//copy ropes
-			//memcpy(temp.ropes, node->ropes, sizeof(int) * 6);
-
 			//copy node to kdnode collection
 			kdnodes.push_back(temp);
 
@@ -387,10 +322,6 @@ namespace KDTREE
 			}
 
 		}
-
-
-		//system("pause");
-		//exit(0);
 	}
 
 

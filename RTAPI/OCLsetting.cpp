@@ -126,11 +126,9 @@ void OCLsetting::InitCL(bool clglinterop /*= true*/)
 
 	//read cl code from file
 	std::ifstream ifs1("RayTracing.cl");
-	//std::ifstream ifs2("SAHbinnedKDtree.cl");
 	std::string clcode1((std::istreambuf_iterator<char>(ifs1)), std::istreambuf_iterator<char>());
-	//std::string clcode2((std::istreambuf_iterator<char>(ifs2)), std::istreambuf_iterator<char>());
-	size_t lengths[] = { clcode1.size() + 1, /*clcode2.size() + 1*/ };
-	const char* sources[] = { clcode1.data() /*, clcode2.data()*/ };
+	size_t lengths[] = { clcode1.size() + 1 };
+	const char* sources[] = { clcode1.data() };
 	int errr;
 	program = clCreateProgramWithSource(context, 1, sources, lengths, &errr);
 	errr = clBuildProgram(program, 1, &device, "", NULL, NULL);
@@ -143,7 +141,6 @@ void OCLsetting::InitCL(bool clglinterop /*= true*/)
 #endif
 
 	//create kernel
-	//kernel_PathTracing = clCreateKernel(program, "PathTracing", NULL);
 	kernel_PathTracing_KDtree = clCreateKernel(program, "PathTracing_kdtree", NULL);
 
 	//frame buffer

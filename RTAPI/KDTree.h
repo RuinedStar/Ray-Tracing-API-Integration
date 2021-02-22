@@ -23,7 +23,6 @@ namespace KDTREE
 		void convertSharedKDnodes(std::vector<KDNode>& kdnodes, std::vector<int>& triangle_pool);
 
 		void buildTree(std::vector<Triangle>& triangles);
-		//void traversalTree(std::vector<KDnode*>& nlist, const Ray& ray) const;
 
 	private:
 		void optimizeRopes(int& nodeid, Rope s, BoundingBox& aabb);

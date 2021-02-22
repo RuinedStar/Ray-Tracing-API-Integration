@@ -1,6 +1,6 @@
 #pragma once
 
-//emissive, diffuse, DIELEC, mirror
+//emissive, diffuse, dielectric (palstic), mirror
 typedef enum { EMIS, DIFF, DIELEC, MIRR } BRDFType;
 
 //for host

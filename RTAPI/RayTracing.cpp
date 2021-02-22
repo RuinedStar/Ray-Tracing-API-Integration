@@ -224,13 +224,6 @@ rtCore::rtCore()
 		pointLight[i].mat = m;
 		pointLight[i].enable = false;
 	}
-
-	/*printf("host sizeof(sphlight) = %d\n", sizeof(SphereLight));
-	printf("host ori: %d\n", (char*)&pointLight[0].ori - (char*)&pointLight[0]);
-	printf("mat: %d\n", (char*)&pointLight[0].mat - (char*)&pointLight[0]);
-	printf("host rad: %d\n", (char*)&pointLight[0].radius - (char*)&pointLight[0]);
-	printf("host enab: %d\n", (char*)&pointLight[0].enable - (char*)&pointLight[0]);
-	printf("host oir2: %d\n", (char*)&pointLight[1].ori - (char*)&pointLight[0]);*/
 }
 
 rtCore::~rtCore()
@@ -333,7 +326,6 @@ void rtInit()
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA32F, WIDTH, HEIGHT, 0, GL_RGBA, GL_FLOAT, NULL);
 	glBindTexture(GL_TEXTURE_2D, 0);
-	//glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);
 
 	Core.frame_texture_img = clCreateFromGLTexture(Ocl.context, CL_MEM_WRITE_ONLY, GL_TEXTURE_2D, 0, Core.frame_texture, NULL);
 
@@ -362,7 +354,6 @@ void rtBindBuffer(GLenum target, GLuint buffer)
 	Ocl.CheckInit();
 	static std::array<GLenum, 2> targetArray = { GL_ARRAY_BUFFER, GL_ELEMENT_ARRAY_BUFFER };
 	
-	//�S���ŦX��buffer id
 	if (buffer > Core.glbuffers.size()) return;
 
 	auto& result = std::find(targetArray.begin(), 
@@ -470,7 +461,7 @@ void rtColorPointer(GLint size, GLenum type, GLsizei stride, const GLvoid *point
 		st = sizeof(double);
 		break;
 	default:
-		return;  //�S���ŦX��type�Ѽ�
+		return; 
 	}
 
 	if (stride == 0) stride = st * size;
@@ -586,7 +577,6 @@ void rtDrawArrays(GLenum mode, GLint first, GLsizei count)
 		}
 		else
 		{
-
 			glm::vec3 a = (temp.v1 - temp.v0).xyz();
 			glm::vec3 b = (temp.v2 - temp.v0).xyz();
 			temp.n0 = glm::vec4(glm::normalize(glm::cross(a, b)), 0);
@@ -682,14 +672,6 @@ void rtFlush()
 
 	clWaitForEvents(1, &execute_event);
 	
-	/*
-	cl_ulong st_time = 0, end_time = 0;
-	clGetEventProfilingInfo(execute_event, CL_PROFILING_COMMAND_START, sizeof(cl_ulong), &st_time, NULL);
-	clGetEventProfilingInfo(execute_event, CL_PROFILING_COMMAND_END, sizeof(cl_ulong), &end_time, NULL);
-	cl_double execute_time = (double)(end_time - st_time) * 1e-06;
-	printf("render time: %.4lf ms\n", execute_time);
-	*/
-
 	//release frame_texture_img usage permission
 	clEnqueueReleaseGLObjects(Ocl.queue, 1, &Core.frame_texture_img, 0, 0, NULL);
 
@@ -728,31 +710,6 @@ void rtFlush()
 
 	glMatrixMode(GL_PROJECTION);
 	glPopMatrix();
-	
-
-	/*
-	/// DRAW THE FRAME ///
-	// read frame from previous draw call, and send to client display screen
-	//clFlush(Ocl.queue);
-	clEnqueueReadBuffer(Ocl.queue, Ocl.frameBuf, CL_TRUE, 0, sizeof(float) * Core.frameData.size(), Core.frameData.data(), 0, NULL, NULL);
-
-	glPushMatrix();
-	glLoadIdentity();
-	glRasterPos2f(-1, 1);
-	glPixelZoom(1, -1);
-	glDrawPixels(WIDTH, HEIGHT, GL_RGBA, GL_FLOAT, Core.frameData.data());
-	glPopMatrix();
-	/// DRAW THE FRAME //
-	*/
-
-	/*clEnqueueReadBuffer(Ocl.queue, INTXN, CL_TRUE, 0, sizeof(int) * 800 * 600 * 2, INTXNDATA.data(), 0, NULL, NULL);
-	int totaltri = 0, totalspehre = 0;
-	for (int i = 0; i < INTXNDATA.size(); i+=2) {
-		totaltri += INTXNDATA[i];
-		totalspehre += INTXNDATA[i + 1];
-	}
-	printf("\n%d %d %f %f", totaltri, totalspehre, totaltri/(800.0*600), totalspehre/(800.0*600));
-	*/
 
 	//clear data
 	Core.triangleData.clear();
@@ -924,7 +881,6 @@ void rtBuildKDtreeCurrentSceneEXT()
 		buildtree.stop();
 
 		printf("tree build: %lf sec", buildtree.getElapsedTimeInSec());
-		//system("pause");
 
 		if (Core.node_buf != NULL) clReleaseMemObject(Core.node_buf);
 		Core.node_buf = clCreateBuffer(Ocl.context, CL_MEM_READ_ONLY | CL_MEM_USE_HOST_PTR, sizeof(KDNode) * Core.kdnodes.size(), Core.kdnodes.data(), NULL);

@@ -39,16 +39,4 @@ ALIGNED_TYPE(struct, 16) __KDNode
 	int start;				//strat triangle id 
 	int end;				//end triangle id
 	int2 child_id;			//s0 left, s1 right
-	//int ropes[6];           //ropes
-/*
-#ifndef __OPENCL_C_VERSION__
-	public:
-		__KDNode(int size)
-			:axis(None), spval(0), start(-1), count(size)
-		{
-			if (size > SIZE_PER_NODE) stat = isNode;
-			else stat = isLeaf;
-		}
-#endif
-*/
 } KDNode;
