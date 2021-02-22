@@ -16,13 +16,13 @@ We provide a realtime ray tracing API (RTAPI) integration for OpenGL application
 # Supported Fixed Function Pipeline Calls
 These calls are commonly used in fixed function pipeline, and could be automatically transformed to RTAPI. The extension row represents some features provided by RTAPI which legacy OpenGL does not support.
 
-| Buffer       | Rendering       | Capability           | GLU <br/><sub>(OpenGL Utility Library)</sub> | Lighting  | Extension            |
-| ------------ | --------------- | -------------------- | --------------------------------------- | --------- | -------------------- |
-| glGenBuffers | glVertexPointer | glEnableClientState  | gluPerspective                          | glLightfv | rtMaterialEXT        |
-| glBindBuffer | glColorPointer  | glDisableClientState | gluLookAt                               |           | rtBuildAcclStructEXT |
-| glBufferData | glNormalPointer | glEnable             |                                         |           |                      |
-|              | glDrawArrays    | glDisable            |                                         |           |                      |
-|              | glFlush         |                      |                                         |           |                      |
+| Buffer       | Rendering       | Capability           | GLU <br/>(OpenGL Utility Library) | Lighting  | Extension            |
+| ------------ | --------------- | -------------------- | --------------------------------- | --------- | -------------------- |
+| glGenBuffers | glVertexPointer | glEnableClientState  | gluPerspective                    | glLightfv | rtMaterialEXT        |
+| glBindBuffer | glColorPointer  | glDisableClientState | gluLookAt                         |           | rtBuildAcclStructEXT |
+| glBufferData | glNormalPointer | glEnable             |                                   |           |                      |
+|              | glDrawArrays    | glDisable            |                                   |           |                      |
+|              | glFlush         |                      |                                   |           |                      |
 
 # Prerequisite
 
