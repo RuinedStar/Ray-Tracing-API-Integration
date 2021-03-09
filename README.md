@@ -1,5 +1,5 @@
 # Ray Tracing API Integration for OpenGL Applications
-This repository is the C++ & OpenCL implementation of Ray tracing API integration for OpenGL applications. Please see the paper below if you are interested in our work.  
+This repository is a Ray tracing API for OpenGL applications implemented in C++ & OpenCL. Please see below link if you are interested in our work.  
 
 ##### [Lai, WH, Tang, CY & Chang, CF 2017, *Ray tracing API integration for OpenGL applications*. in V Skala (ed.), Posters Proceedings. May edn, vol. 2703, University of West Bohemia, pp. 1-5, 25th International Conference in Central Europe on Computer Graphics, Visualization and Computer Vision, WSCG 2017, Plzen, Czech Republic](https://scholar.lib.ntnu.edu.tw/en/publications/ray-tracing-api-integration-for-opengl-applications)
 
