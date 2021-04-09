@@ -14,7 +14,7 @@ We provide a realtime ray tracing API (RTAPI) integration for OpenGL application
 
 
 # Supported Fixed Function Pipeline Calls
-These calls are commonly used in fixed function pipeline, and could be automatically transformed to RTAPI. The extension row represents some features provided by RTAPI which legacy OpenGL does not support.
+These calls are commonly used in fixed function pipeline, you can simply include the *RayTracing.h* and these calls are automatically transformed to RTAPI. Note that the extension column represents some features only provided by RTAPI which legacy OpenGL does not support.
 
 | Buffer       | Rendering       | Capability           | GLU <br/>(OpenGL Utility Library) | Lighting  | Extension            |
 | ------------ | --------------- | -------------------- | --------------------------------- | --------- | -------------------- |
