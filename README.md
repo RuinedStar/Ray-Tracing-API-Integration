@@ -52,7 +52,7 @@ These calls are commonly used in fixed function pipeline, you can simply include
 ```cmd 
 > cd vcpkg
 > .\bootstrap-vcpkg.bat
-> .\vcpkg.exe install --triplet x64-windows opencl assimp devil freeglut glew glm
+> .\vcpkg.exe install --triplet x64-windows opencl assimp freeglut glew glm
 ```
 #### Generate your Visual Studio project 
 * CMake-GUI or follow commands in [Linux build section](#configure-and-build-your-project)
@@ -63,7 +63,7 @@ These calls are commonly used in fixed function pipeline, you can simply include
 ```sh
 > cd vcpkg
 > ./bootstrap-vcpkg.sh
-> ./vcpkg install --triplet x64-linux opencl assimp devil freeglut glew glm
+> ./vcpkg install --triplet x64-linux opencl assimp freeglut glew glm
 ```
 #### Configure and build your project
 ```sh
