@@ -42,7 +42,7 @@ These calls are commonly used in fixed function pipeline, you can simply include
 # Build from Scratch
 #### Checkout the source tree:
 ```sh
-> git clone --recursive https://github-dotcom.gateway.web.tr/RuinedStar/Ray-Tracing-API-Integration.git
+> git clone --recursive https://github.com/RuinedStar/Ray-Tracing-API-Integration.git
 > cd Ray-Tracing-API-Integration
 ```
 ### **Windows**
