@@ -28,7 +28,7 @@ These calls are commonly used in fixed function pipeline, you can simply include
 
 * OpenCL >= 1.2 and its Installable Client Driver (ICD)
   * Windows 10 PC
-    * Using Intel iGPU, your Graphic driver is already included or updated from [Intel Download Center](https://downloadcenter.intel.com/product/80939).
+    * Using Intel iGPU, your Graphic driver is already included or you can update it from [Intel Download Center](https://downloadcenter.intel.com/product/80939).
     * Using NVIDIA GPU, please install the latest [NVIDIA Graphic Driver](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiD2Mb8yvXuAhXGF3IKHe2KDC8QFjACegQIEBAD&url=https%3A%2F%2Fwww.nvidia.com%2FDownload%2Findex.aspx&usg=AOvVaw3QMyvvhtDESOcvPBtma4SH).
   * Linux PC (Ubuntu >= 16.04)
     * Using Intel iGPU, please install via this command `sudo apt install intel-opencl-icd`
@@ -42,7 +42,7 @@ These calls are commonly used in fixed function pipeline, you can simply include
 # Build from Scratch
 #### Checkout the source tree:
 ```sh
-> git clone --recursive https://github.com/RuinedStar/Ray-Tracing-API-Integration.git
+> git clone --recursive https://github-dotcom.gateway.web.tr/RuinedStar/Ray-Tracing-API-Integration.git
 > cd Ray-Tracing-API-Integration
 ```
 ### **Windows**
@@ -55,7 +55,7 @@ These calls are commonly used in fixed function pipeline, you can simply include
 > .\vcpkg.exe install --triplet x64-windows opencl assimp devil freeglut glew glm
 ```
 #### Generate your Visual Studio project 
-* CMake-GUI or follow commands in [below Linux section](#configure-and-build-your-project)
+* CMake-GUI or follow commands in [Linux build section](#configure-and-build-your-project)
 * Double click raytracing.sln to open Visual Studio IDE and start to play it around! 
     
 ### **Linux**
