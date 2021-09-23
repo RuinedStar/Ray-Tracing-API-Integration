@@ -19,7 +19,7 @@ These calls are commonly used in fixed function pipeline, you can simply include
 | Buffer       | Rendering       | Capability           | GLU <br/>(OpenGL Utility Library) | Lighting  | Extension            |
 | ------------ | --------------- | -------------------- | --------------------------------- | --------- | -------------------- |
 | glGenBuffers | glVertexPointer | glEnableClientState  | gluPerspective                    | glLightfv | rtMaterialEXT        |
-| glBindBuffer | glColorPointer  | glDisableClientState | gluLookAt                         |           | rtBuildAcclStructEXT |
+| glBindBuffer | glColorPointer  | glDisableClientState | gluLookAt                         |           | rtBuildKDtreeCurrentSceneEXT |
 | glBufferData | glNormalPointer | glEnable             |                                   |           |                      |
 |              | glDrawArrays    | glDisable            |                                   |           |                      |
 |              | glFlush         |                      |                                   |           |                      |
